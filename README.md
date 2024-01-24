@@ -1,2 +1,2 @@
 # Be_Task
-Be-Task
+This Laravel-based Product Management System (PMS) incorporates the Filament open-source dashboard package. The system facilitates the management of product categories and individual products, establishing a one-to-many relationship between them. Basic CRUD functionalities for both categories and products are integrated into the dashboard. An important feature is the ability for the admin to select the related category from a dropdown menu when creating or updating a product.
