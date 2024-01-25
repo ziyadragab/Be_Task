@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\RegisterController;
 
@@ -16,5 +17,10 @@ use App\Http\Controllers\User\RegisterController;
 */
 
 Route::get('',[HomeController::class, 'index'])->name('index');
-Route::get('register',[RegisterController::class, 'registerForm'])->name('registerForm');
-Route::post('register',[RegisterController::class, 'register'])->name('register');
+Route::post('',[HomeController::class, 'storeProduct'])->name('storeProduct');
+
+Route::get('register',[RegisterController::class, 'registerForm'])->name('registerForm')->middleware('guest');
+Route::post('register',[RegisterController::class, 'register'])->name('register')->middleware('guest');
+
+Route::post('login',[AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::get('logout',[AuthController::class, 'logout'])->name('logout')->middleware('auth');
