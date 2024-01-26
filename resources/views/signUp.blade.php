@@ -76,6 +76,11 @@
 
 <body>
     <div class="container">
+        @if(session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
         <h2 id="loginhead">Login</h2>
         <form id="loginForm" action="{{ route('login') }}" method="POST">
             @csrf
@@ -142,6 +147,10 @@
 
         <div class="toggle-form">
             <a href="#" id="toggleLink">Create an account</a>
+        </div>
+
+        <div class="toggle-form">
+            <a href="{{route('password.request')}}" id="">Forget Your Password?</a>
         </div>
     </div>
 

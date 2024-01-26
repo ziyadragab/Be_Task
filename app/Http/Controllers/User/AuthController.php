@@ -25,4 +25,23 @@ class AuthController extends Controller
     {
         return $this->authInterface->logout();
     }
+    public function forgetPasswordForm()
+    {
+        return $this->authInterface->forgetPasswordForm();
+    }
+
+    public function sendResetLinkEmail(Request $request)
+    {
+        return $this->authInterface->sendResetLinkEmail($request);
+    }
+
+    public function resetPasswordForm($token)
+    {
+        return $this->authInterface->resetPasswordForm($token);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        return $this->authInterface->resetPassword($request);
+    }
 }
