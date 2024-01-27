@@ -2,13 +2,16 @@
 
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\MyFatoorahController;
+use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\RegisterController;
 
 /*
@@ -36,3 +39,11 @@ Route::post('password/email', [AuthController::class, 'sendResetLinkEmail'])->na
 Route::get('password/reset/{token}', [AuthController::class, 'resetPasswordForm'])->name('password.reset');
 Route::post('password/reset', [AuthController::class, 'resetPassword'])->name('password.update');
 
+Route::get('addToCart/{product}',[CartController::class ,'create'])->name('cart.create');
+Route::post('/{cart}',[CartController::class ,'delete'])->name('cart.delete');
+
+
+Route::get('order/create',[OrderController::class ,'create'])->name('order.create');
+Route::post('order/store',[OrderController::class ,'store'])->name('order.store');
+
+Route::get('myfatoorah/{order}', [MyFatoorahController::class,'index'])->name('myfatoorah.page');
